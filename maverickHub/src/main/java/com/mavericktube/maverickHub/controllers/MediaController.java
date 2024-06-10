@@ -20,4 +20,9 @@ public class MediaController {
     public ResponseEntity<?> uploadMedia(@ModelAttribute UploadMediaRequest uploadMediaRequest) {
         return ResponseEntity.status(CREATED).body(mediaService.upload(uploadMediaRequest));
     }
+
+    @GetMapping
+    public ResponseEntity<?> getMediaFor(@RequestParam Long userId) {
+        return ResponseEntity.ok(mediaService.getMediaFor(userId));
+    }
 }
